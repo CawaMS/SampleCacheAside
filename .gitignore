@@ -1,0 +1,7 @@
+.vs
+ProductsCatalogWeb/bin
+ProductsCatalogWeb/obj
+ProductsCatalogWeb/ProductsCatalogWeb.csproj.user
+ProductsCatalogWeb/Properties/PublishProfiles/
+ProductsCatalogWeb/Properties/ServiceDependencies/
+ProductsCatalogWeb/Properties/serviceDependencies.*
