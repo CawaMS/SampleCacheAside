@@ -10,8 +10,9 @@ using Microsoft.IdentityModel.Tokens;
 using ProductsCatalogWeb.Data;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
+using ProductsCatalogWeb.Models;
 
-namespace ProductsCatalogWeb.Models
+namespace ProductsCatalogWeb.Controllers
 {
     public class ProductsController : Controller
     {
@@ -46,7 +47,7 @@ namespace ProductsCatalogWeb.Models
                     await _cache.SetAsync("AllProducts", memoryStream.ToArray());
                 }
                 return View(products);
-                
+
             }
         }
 
@@ -67,8 +68,8 @@ namespace ProductsCatalogWeb.Models
                 return View(product);
             }
             //else, read product from database and save in cache for next read operation. Review product to view. 
-            else 
-            { 
+            else
+            {
                 var product = await _context.Product.FirstOrDefaultAsync(m => m.Id == id);
                 if (product == null)
                 {
@@ -85,7 +86,7 @@ namespace ProductsCatalogWeb.Models
 
                 }
             }
-          
+
         }
 
         // GET: Products/Create
@@ -205,7 +206,7 @@ namespace ProductsCatalogWeb.Models
 
         private bool ProductExists(int id)
         {
-          return (_context.Product?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Product?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
